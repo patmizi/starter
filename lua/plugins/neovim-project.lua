@@ -1,12 +1,8 @@
 return {
   "coffebar/neovim-project",
-  config = function()
-    require("neovim-project").setup({})
-  end,
 
   opts = {
     projects = { -- define project roots
-      "~/projects/*",
       "~/github/*",
     },
     picker = {
