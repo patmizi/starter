@@ -3,19 +3,22 @@ return {
   config = function()
     require("neovim-project").setup({})
   end,
+
   opts = {
     projects = { -- define project roots
       "~/projects/*",
-      "~/.config/*",
+      "~/github/*",
     },
     picker = {
       type = "telescope", -- one of "telescope", "fzf-lua", or "snacks"
     },
   },
+
   init = function()
     -- enable saving the state of plugins in the session
     vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
   end,
+
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     -- optional picker
@@ -26,6 +29,17 @@ return {
     { "folke/snacks.nvim" },
     { "Shatur/neovim-session-manager" },
   },
+
+  keys = {
+    {
+      "<leader>sp",
+      function()
+        require("neovim-project.project").discover_projects()
+      end,
+      desc = "[s]earch [p]rojects",
+    },
+  },
+
   lazy = false,
   priority = 100,
 }
