@@ -1,9 +1,8 @@
 local wk = require("which-key")
-wk.add({ ["<leader>"] = {
-  t = {
-    name = "+test",
-  },
-} })
+
+wk.add({
+  { "<leader>t", group = "+test" }
+})
 
 return {
 
